@@ -1,0 +1,13 @@
+body {
+  background-color: lightgrey;
+}
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p {
+  color: darkred;
+  font-family: courier;
+  font-size: 160%;
+}
