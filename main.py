@@ -10,6 +10,7 @@ def home():
 @app.route("/", methods=['post'])
 def home_form_post():
     text = request.form['text']
+    option = request.form['metric']
     engine = Engine.Engine()
     top = engine.get_recommendations(text, 5)
     if top == []:
