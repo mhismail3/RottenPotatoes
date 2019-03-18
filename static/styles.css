@@ -6,6 +6,11 @@ h1 {
   font-family: verdana;
   font-size: 300%;
 }
+h2 {
+  color: blue;
+  font-family: verdana;
+  font-size: 200%;
+}
 p {
   color: darkred;
   font-family: courier;

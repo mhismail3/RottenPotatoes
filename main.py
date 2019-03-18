@@ -16,11 +16,11 @@ def home_form_post():
     if top == []:
         return render_template(
             'submitted_form.html',
-            name='Film not found', rec1=' ', rec2=' ', rec3=' ', rec4=' ', rec5=' ')
+            name='FILM NOT FOUND!', metric=option, rec1=' ', rec2=' ', rec3=' ', rec4=' ', rec5=' ')
     else:
         return render_template(
             'submitted_form.html',
-               name=text, rec1 = top[0], rec2 = top[1], rec3 = top[2], rec4 = top[3], rec5 = top[4])
+               name=text, metric=option, rec1 = top[0], rec2 = top[1], rec3 = top[2], rec4 = top[3], rec5 = top[4])
 
 if __name__ == "__main__":
     app.run(debug=True)
