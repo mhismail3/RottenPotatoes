@@ -1,3 +1,5 @@
+
+# import necessary libraries
 import math
 import numpy as np
 import pandas as pd
@@ -11,9 +13,14 @@ class MovieData:
         # Read in .csv files for movies_metadata and keywords dta
         self.mov = pd.read_csv('data/movies_metadata.csv', na_values=["?"], low_memory=False)
         self.keywords = pd.read_csv('data/keywords.csv', na_values=["?"])
+        # self.ratings = pd.read_csv('data/ratings_small.csv', na_values=["?"])
+        self.ratings = pd.read_csv('data/ratings.csv', na_values=["?"])
+        self.r_map = pd.read_csv('data/ratings_map.csv', na_values=["?"])
         self.word_list = []
+        # self.r_map = pd.DataFrame()
         self.term_freq = pd.DataFrame()
         self.term_tfidf = pd.DataFrame()
+        
         self.preprocess()
 
     def get_movie_index(self, title):
@@ -89,6 +96,32 @@ class MovieData:
             for j in range(0, len(tmpwords)):
                 if tmpwords[j] not in d: words.append(tmpwords[j])
             self.mov.at[i, 'keywords'] = words
+        
+        # The following code can be used to preprocess the original ratings.csv dataset
+        # from the database. Because the preprocessing takes a long time, the preprocessed
+        # data is included as 'ratings.csv' and imported in the __init__() function above
+        
+#        self.ratings = self.ratings.drop(columns=['timestamp'])
+#        self.ratings = self.ratings.rename(index=int, columns={'movieId': 'id'})
+#        self.ratings = self.ratings.rename(index=int, columns={'userId': 'user_id'})
+#
+#        movcols = self.mov.loc[:,'id'].tolist()
+#        ratings_tmp = pd.DataFrame(index=range(1,self.ratings.user_id.max()+1))
+#        for i in range(0, len(self.ratings)):
+#            if self.ratings.loc[i, 'id'] in movcols:
+#                ratings_tmp.at[self.ratings.loc[i, 'user_id'], self.ratings.loc[i, 'id']] = self.ratings.loc[i, 'rating']
+#        self.ratings = ratings_tmp
+#         
+#        for i in range(0, len(self.ratings.columns)):
+#            self.ratings.iloc[:,i] = self.ratings.iloc[:,i].fillna(self.ratings.iloc[:,i].mean())
+#        self.ratings = self.ratings.T
+#        self.ratings = self.ratings.reset_index()
+#        self.ratings = self.ratings.rename(index=int, columns={'level_0': 'id'})
+#        
+#        self.r_map = pd.DataFrame(index=range(0, len(self.ratings)))
+#        self.r_map['index'] = self.ratings['index']
+#
+#        self.ratings = self.ratings.drop(columns=['index'])
 
     def term_freq(self):
         """

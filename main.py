@@ -12,11 +12,16 @@ def home_form_post():
     text = request.form['text']
     option = request.form['metric']
     engine = Engine.Engine()
-    top = engine.get_recommendations(text, 5)
-    if top == []:
+    top = engine.get_recommendations(text, 5, option)
+
+    if top[0] == 'film not found':
         return render_template(
             'submitted_form.html',
             name='FILM NOT FOUND!', metric=option, rec1=' ', rec2=' ', rec3=' ', rec4=' ', rec5=' ')
+    elif top[0] == 'insufficient ratings':
+        return render_template(
+            'submitted_form.html',
+            name='INSUFFICIENT RATINGS! TRY ANOTHER MOVIE', metric=option, rec1=' ', rec2=' ', rec3=' ', rec4=' ', rec5=' ')
     else:
         return render_template(
             'submitted_form.html',
