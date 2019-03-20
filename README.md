@@ -29,6 +29,11 @@ This project is a movie recommendation engine based on similar keywords and user
     representing how many movies to receive from the engine, and "option" being either
     "keywords" or "ratings" representing the metric to use in the algorithm.
     
+    ___
+    
+    The 'DSC478_Final_Project_Jupyter_Workbook.zip' file contains the Jupyter notebook with all of our
+    intermediate analysis work done.
+    
     
     #### Note:
     We deployed this application online using AWS engine and services, which was a daunting process.
