@@ -8,10 +8,6 @@ This project is a movie recommendation engine based on similar keywords and user
 - TO RUN AS A STANDALONE APP
 
     You can find the completed application at the following link: [Project App Link](http://rottenpotatoes2-env.5qt2cegbay.us-east-2.elasticbeanstalk.com/)
-
-- TO BUILD THE APP YOURSELF (Not Recommended)
-
-    Add here.
     
 - TO RUN THE ENGINE SOURCE CODE IN YOUR PYTHON IDE
 
@@ -31,4 +27,9 @@ This project is a movie recommendation engine based on similar keywords and user
     
     replacing "title" with the title of a movie as a string, "number" with an integer
     representing how many movies to receive from the engine, and "option" being either
-    "keywords" or "ratings" representing the metric to use in the algorithm
+    "keywords" or "ratings" representing the metric to use in the algorithm.
+    
+    
+    #### Note:
+    We deployed this application online using AWS engine and services, which was a daunting process.
+    If you would like more information on how to build/deploy this app yourself, please reach out to us.
