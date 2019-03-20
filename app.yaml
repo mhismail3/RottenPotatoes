@@ -5,6 +5,10 @@ threadsafe: true
 libraries:
 - name: ssl
   version: latest
+- name: numpy
+  version: latest
+- name: pandas
+  version: latest
 
 handlers:
 - url: /static

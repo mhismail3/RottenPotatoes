@@ -5,13 +5,20 @@ import numpy as np
 import pandas as pd
 from ast import literal_eval
 from collections import Counter
-
+from zipfile import ZipFile
+import os
 
 class MovieData:
 
     def __init__(self):
         # Read in .csv files for movies_metadata and keywords dta
+        # movies_metadata.csv is a large file so we extract from a zip file
+        zip_ref = ZipFile('data/movies_metadata.zip', 'r')
+        zip_ref.extract('movies_metadata.csv', 'data')
+        zip_ref.close()
         self.mov = pd.read_csv('data/movies_metadata.csv', na_values=["?"], low_memory=False)
+        # delete the .csv file after importing
+        os.remove("data/movies_metadata.csv")
         self.keywords = pd.read_csv('data/keywords.csv', na_values=["?"])
         # self.ratings = pd.read_csv('data/ratings_small.csv', na_values=["?"])
         self.ratings = pd.read_csv('data/ratings.csv', na_values=["?"])
